@@ -2,16 +2,25 @@ import numpy as np
 import statistics
 
 def main():
-    # Loops adding to the list until an empty string is sent
-    var = 0
+    print("Add a number to the list, press enter to end and \"b\" for backspace\n")
+    # Loops adding to the list until an empty string or backspace is sent
     list = []
-    # TODO Backspace option
     while True:
-        var = input("\nAdd a number to the list, press enter to end\n")
-        if var != "":
-            var = int(var)
-            list.append(int(var))
-            print(list)
+        var = input("")
+        if var == "b":
+            try:
+                index = len(list)
+                list.pop()
+                print(list)
+            except:
+                print("\nList is already empty")
+        elif var != "":
+            try: 
+                var = int(var)
+                list.append(int(var))
+                print("\n", list, "\n")
+            except:
+                print("\nPlease enter a number")
         else:
             break
     list.sort()
